@@ -61,6 +61,9 @@ SpaceRouter deployed to: 0xEC469B61AD5C24cFFb9692fddAC92522E171CAD5
 
 https://rinkeby.etherscan.io/address/0x6684561d15a28a4b4a96fd5d63778862457d9bd6
 
+# Gnosis Safe Wallet
+https://gnosis-safe.io/app/gor:0xde3788029cc9620269BC7B3A021813B2e4d51274/home
+
 # Design Exercises
 
 Consider and write down the positive and negative tradeoffs of the following configurations for a multisig wallet. In particular, consider how each configuration handles the common failure modes of wallet security.

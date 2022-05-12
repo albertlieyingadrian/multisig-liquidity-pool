@@ -2,17 +2,18 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 import "./SpaceCoinICO.sol";
 
 // import "hardhat/console.sol";
 
-contract SpaceCoin is ERC20 {
+contract SpaceCoin is ERC20, Ownable {
     uint256 public constant ONE_TOKEN = 10**18;
     uint256 public constant MAX_TOTAL_SUPPLY = 500000 * ONE_TOKEN;
     uint256 public constant ICO_AMOUNT = 30000 * 5 * ONE_TOKEN;
 
-    address public owner;
+    // address public owner;
     address public icoAccount;
     address public treasuryAccount;
 
@@ -22,11 +23,11 @@ contract SpaceCoin is ERC20 {
         string memory name,
         string memory symbol,
         address _treasuryAccount
-    ) public ERC20(name, symbol) {
-        owner = msg.sender;
+    ) public Ownable() ERC20(name, symbol) {
+        // owner = msg.sender;
 
         treasuryAccount = _treasuryAccount;
-        icoAccount = address(new SpaceCoinICO(owner, this, treasuryAccount));
+        icoAccount = address(new SpaceCoinICO(owner(), this, treasuryAccount));
 
         uint256 icoAmount = ICO_AMOUNT;
 
@@ -34,13 +35,13 @@ contract SpaceCoin is ERC20 {
         _mint(treasuryAccount, MAX_TOTAL_SUPPLY - icoAmount);
     }
 
-    modifier onlyOwner() {
-        require(
-            msg.sender == owner,
-            "This operation could only be done by the owner"
-        );
-        _;
-    }
+    // modifier onlyOwner() {
+    //     require(
+    //         msg.sender == owner,
+    //         "This operation could only be done by the owner"
+    //     );
+    //     _;
+    // }
 
     function _transfer(
         address sender,

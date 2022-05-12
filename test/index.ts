@@ -218,6 +218,7 @@ describe("Liquidity Pool", () => {
         await spaceCoin
           .connect(treasury)
           .increaseAllowance(spaceRouter.address, ONE_ETHER.mul(100));
+
         await spaceRouter
           .connect(treasury)
           .addLiquidity(liquiditySPCAmount, { value: liquidityETHAmount });
@@ -245,6 +246,7 @@ describe("Liquidity Pool", () => {
 
         const minimumSPCOut = parseEther("15");
 
+        await spaceRouter.transferOwnership(trader.address);
         await spaceRouter
           .connect(trader)
           .swapToken(0, 0, minimumSPCOut, { value: ONE_ETHER.mul(5) });
@@ -285,6 +287,7 @@ describe("Liquidity Pool", () => {
 
         const minimumETHOut = parseEther("1.5");
 
+        await spaceRouter.transferOwnership(trader.address);
         await spaceRouter
           .connect(trader)
           .swapToken(spcAmount, minimumETHOut, 0);
@@ -316,6 +319,8 @@ describe("Liquidity Pool", () => {
 
         const spcAmount = ONE_ETHER.mul(20);
         const minimumETHOut = parseEther("3");
+
+        await spaceRouter.transferOwnership(trader.address);
 
         await expect(
           spaceRouter.connect(trader).swapToken(spcAmount, minimumETHOut, 0)

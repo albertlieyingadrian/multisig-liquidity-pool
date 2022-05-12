@@ -1,13 +1,15 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
+import "@openzeppelin/contracts/access/Ownable.sol";
+
 import "./SpaceCoinLP.sol";
 
-contract SpaceRouter {
+contract SpaceRouter is Ownable {
     SpaceCoin spaceCoin;
     SpaceCoinLP spaceCoinLP;
 
-    constructor(SpaceCoin _spaceCoin, SpaceCoinLP _spaceCoinLP) {
+    constructor(SpaceCoin _spaceCoin, SpaceCoinLP _spaceCoinLP) Ownable() {
         spaceCoin = _spaceCoin;
         spaceCoinLP = _spaceCoinLP;
     }
@@ -23,7 +25,7 @@ contract SpaceRouter {
         uint256 spcAmount,
         uint256 minimumETHOut,
         uint256 minimumSPCOut
-    ) external payable {
+    ) external payable onlyOwner {
         // TODO: Add require only one coin could be swapped at a time
 
         if (spcAmount > 0) {

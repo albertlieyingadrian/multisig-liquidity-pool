@@ -8,17 +8,17 @@ import RouterJSON from "../../artifacts/contracts/SpaceRouter.sol/SpaceRouter.js
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const signer = provider.getSigner();
 
-const spaceCoinAddr = "0x6dce6D3C01657156A628Df999a26Ec6470c2563c";
+const spaceCoinAddr = "0x5BF2FecC647f78704e03dA3f9e5333b9aD1F5142";
 const spaceCoin = new ethers.Contract(
   spaceCoinAddr,
   SpaceCoinJSON.abi,
   provider
 );
 
-const icoAddr = "0x2Dae42f82d93D93fC005ED1780752c47AE3D132b";
+const icoAddr = "0xfa361e3f7b6d353BDB5F8DA6583E1B8942543092";
 const ico = new ethers.Contract(icoAddr, IcoJSON.abi, provider);
 
-const spaceRouterAddr = "0xEC469B61AD5C24cFFb9692fddAC92522E171CAD5";
+const spaceRouterAddr = "0x810B6103e585825c73E77Bf0Ef6428c78bc9479e";
 const spaceRouter = new ethers.Contract(
   spaceRouterAddr,
   RouterJSON.abi,
@@ -28,10 +28,16 @@ const spaceRouter = new ethers.Contract(
 const treasuryAddr = "0xb4204d2D9A51572E858Ef53715486899bB6fe112";
 
 async function connectToMetamask() {
+  console.log('haha');
+  // console.log('owner', await spaceCoin.owner());
+  console.log('owner', await spaceRouter.owner());
+  console.log('hehe');
+
   try {
     console.log("Signed in as", await signer.getAddress());
   } catch (err) {
     console.log("Not signed in");
+
     await provider.send("eth_requestAccounts", []);
   }
 }

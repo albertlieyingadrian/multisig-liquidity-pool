@@ -44,6 +44,9 @@ async function main() {
   await spaceRouter.deployed();
 
   console.log("SpaceRouter deployed to:", spaceRouter.address);
+
+  // @TODO: Change this hardcoded gnosis safe address
+  await spaceRouter.transferOwnership('0xde3788029cc9620269BC7B3A021813B2e4d51274');
 }
 
 // We recommend this pattern to be able to use async/await everywhere

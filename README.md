@@ -46,7 +46,7 @@ npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS "Hello, Hardhat!"
 For faster runs of your tests and scripts, consider skipping ts-node's type checking by setting the environment variable `TS_NODE_TRANSPILE_ONLY` to `1` in hardhat's environment. For more details see [the documentation](https://hardhat.org/guides/typescript.html#performance-optimizations).
 
 # Deployment Result
-
+Rinkeby
 ```
 Deploying contracts with the account: 0x6684561D15A28a4b4a96fd5D63778862457d9bd6
 Account balance: 600470644566999930
@@ -55,6 +55,17 @@ SpaceCoin deployed to: 0x6dce6D3C01657156A628Df999a26Ec6470c2563c
 SpaceCoinICO deployed to: 0x2Dae42f82d93D93fC005ED1780752c47AE3D132b
 SpaceCoinLP Pool deployed to: 0xD8f1E3a98E44852AE1CC9D6C5c34163D7C80dcD2
 SpaceRouter deployed to: 0xEC469B61AD5C24cFFb9692fddAC92522E171CAD5
+```
+
+Goerli
+```
+Deploying contracts with the account: 0x6684561D15A28a4b4a96fd5D63778862457d9bd6
+Account balance: 1099503550184304918
+Treasury address 0xb4204d2D9A51572E858Ef53715486899bB6fe112
+SpaceCoin deployed to: 0x5BF2FecC647f78704e03dA3f9e5333b9aD1F5142
+SpaceCoinICO deployed to: 0xfa361e3f7b6d353BDB5F8DA6583E1B8942543092
+SpaceCoinLP Pool deployed to: 0xD9023008238F7f437EeF820F59D32d0c545fDC47
+SpaceRouter deployed to: 0x810B6103e585825c73E77Bf0Ef6428c78bc9479e
 ```
 
 # Etherscan link in rinkeby

@@ -99,3 +99,4 @@ N-of-N
 | SpaceCoinICO TransferOwnership | https://goerli.etherscan.io/tx/0x94c86f3b018ad5210ffbfb46846b67061cb24d5c9a002cc5d5d0a94ae38558b3 |
 | SpaceCoinLP TransferOwnership  | https://goerli.etherscan.io/tx/0x82752c16c92b342adf17c7e5aa85560a255f6b611c4f8a33bf0a2d41758012e7 |
 | SpaceRouter TransferOwnership  | https://goerli.etherscan.io/tx/0xb74a883c09ba19ccb7042a4c1f534c928b1efc691c8566536b14e0fdfd34633a |
+|  Exec Transaction Gnosis Safe  | https://goerli.etherscan.io/tx/0x5f8240af32dfb1bbd512972c0dd1249bf09a55bebd5148584a9344ba7dba7142 |

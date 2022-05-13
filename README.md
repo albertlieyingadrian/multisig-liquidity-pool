@@ -79,6 +79,27 @@ Consider and write down the positive and negative tradeoffs of the following con
 M-of-N (where M: such that 1 < M < N)
 N-of-N
 
+a. 1-of-N
+```
++ Easy and fast for funds to be transferred out for a pool account e.g. investment / common pool for a group
+
+- It is not too different from the usual wallet that requires 1 signature to perform a transaction, so if this person is a bad actor, he could perform a harmful transaction e.g. withdrawing all money from a treasury account, etc
+```
+
+b. M-of-N (where M: such that 1 < M < N)
+```
++ Safer compared to 1-of-N model and at least it allows some people (M) to confirm first before performing a transaction on behalf of a group. If one private key gets lost, at least there are still some private keys to sign the transaction.
+
+- Could be dominated by only some owners instead of all owners if the owners of the multisg wallet are not selected correctly. So some transactions could be controlled by some owners only
+```
+
+c. N-of-N
+```
++ The safest one because it requires all owners to confirm before a transaction is executed 
+
+- Losing one of the private keys makes it impossible to sign the transaction because it requires all owners' confirmation
+```
+
 # Deliverables
 
 ## Contracts and Wallet

@@ -46,7 +46,9 @@ npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS "Hello, Hardhat!"
 For faster runs of your tests and scripts, consider skipping ts-node's type checking by setting the environment variable `TS_NODE_TRANSPILE_ONLY` to `1` in hardhat's environment. For more details see [the documentation](https://hardhat.org/guides/typescript.html#performance-optimizations).
 
 # Deployment Result
+
 Rinkeby
+
 ```
 Deploying contracts with the account: 0x6684561D15A28a4b4a96fd5D63778862457d9bd6
 Account balance: 600470644566999930
@@ -58,6 +60,7 @@ SpaceRouter deployed to: 0xEC469B61AD5C24cFFb9692fddAC92522E171CAD5
 ```
 
 Goerli
+
 ```
 Deploying contracts with the account: 0x6684561D15A28a4b4a96fd5D63778862457d9bd6
 Account balance: 1039550994533264672
@@ -68,6 +71,7 @@ SpaceCoinLP Pool deployed to: 0x30a3c2d9cB20e072ff487cfA8409Df379a69B551
 SpaceRouter deployed to: 0x256535fa25d745CB68F3a936CaBDFFE3Fc34fE7F
 Transfering ownership to multisig wallet: 0xE08b81dd3a878eb6fAB1b856231b9c7FD39D718E
 ```
+
 # Design Exercises
 
 Consider and write down the positive and negative tradeoffs of the following configurations for a multisig wallet. In particular, consider how each configuration handles the common failure modes of wallet security.
@@ -75,19 +79,23 @@ Consider and write down the positive and negative tradeoffs of the following con
 M-of-N (where M: such that 1 < M < N)
 N-of-N
 
-
 # Deliverables
 
 ## Contracts and Wallet
-- [Gnosis Safe Multisig Wallet](https://gnosis-safe.io/app/gor:0xE08b81dd3a878eb6fAB1b856231b9c7FD39D718E)
-- [SpaceCoin Contract](https://goerli.etherscan.io/address/0x9f0000b944edD1Ee4338724415c5D261e04248e1)
-- [SpaceCoinICO Contract](https://goerli.etherscan.io/address/0x890f2D98777F50024D7DEe18eB589E33B32A5DD9)
-- [SpaceCoinLP Contract](https://goerli.etherscan.io/address/0xEC469B61AD5C24cFFb9692fddAC92522E171CAD5)
-- [SpaceRouter Contract](https://goerli.etherscan.io/address/0xd8FC763771BAbe4C51b2fB7e70B132aeE9653540)
+
+|            Name             |                                      Link                                      |
+| :-------------------------: | :----------------------------------------------------------------------------: |
+| Gnosis Safe Multisig Wallet |   https://gnosis-safe.io/app/gor:0xE08b81dd3a878eb6fAB1b856231b9c7FD39D718E    |
+|     SpaceCoin Contract      | https://goerli.etherscan.io/address/0x9f0000b944edD1Ee4338724415c5D261e04248e1 |
+|    SpaceCoinICO Contract    | https://goerli.etherscan.io/address/0x890f2D98777F50024D7DEe18eB589E33B32A5DD9 |
+|    SpaceCoinLP Contract     | https://goerli.etherscan.io/address/0xEC469B61AD5C24cFFb9692fddAC92522E171CAD5 |
+|    SpaceRouter Contract     | https://goerli.etherscan.io/address/0xd8FC763771BAbe4C51b2fB7e70B132aeE9653540 |
 
 ## Transactions
-- [SpaceCoin TransferOwnership](https://goerli.etherscan.io/tx/0xe2e582bf9605966c2dc39e05887f2fe59a03239bad2a86572984f88a8d96cede)
-- [SpaceCoinICO TransferOwnership](https://goerli.etherscan.io/tx/0x94c86f3b018ad5210ffbfb46846b67061cb24d5c9a002cc5d5d0a94ae38558b3)
-- [SpaceCoinLP TransferOwnership](https://goerli.etherscan.io/tx/0x82752c16c92b342adf17c7e5aa85560a255f6b611c4f8a33bf0a2d41758012e7)
-- [SpaceRouter TransferOwnership](https://goerli.etherscan.io/tx/0xb74a883c09ba19ccb7042a4c1f534c928b1efc691c8566536b14e0fdfd34633a)
-- [SwapToken]()
+
+|              Name              |                                               Link                                                |
+| :----------------------------: | :-----------------------------------------------------------------------------------------------: |
+|  SpaceCoin TransferOwnership   | https://goerli.etherscan.io/tx/0xe2e582bf9605966c2dc39e05887f2fe59a03239bad2a86572984f88a8d96cede |
+| SpaceCoinICO TransferOwnership | https://goerli.etherscan.io/tx/0x94c86f3b018ad5210ffbfb46846b67061cb24d5c9a002cc5d5d0a94ae38558b3 |
+| SpaceCoinLP TransferOwnership  | https://goerli.etherscan.io/tx/0x82752c16c92b342adf17c7e5aa85560a255f6b611c4f8a33bf0a2d41758012e7 |
+| SpaceRouter TransferOwnership  | https://goerli.etherscan.io/tx/0xb74a883c09ba19ccb7042a4c1f534c928b1efc691c8566536b14e0fdfd34633a |

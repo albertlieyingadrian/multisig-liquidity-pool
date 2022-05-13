@@ -1,16 +1,17 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
+import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/math/Math.sol";
 
 import "./SpaceCoin.sol";
 
 import "hardhat/console.sol";
 
-contract SpaceCoinICO {
+contract SpaceCoinICO is Ownable {
     uint256 public constant TOKEN_RATE = 5;
 
-    address public owner;
+    // address public owner;
     address public immutable treasury;
 
     enum Phase {
@@ -38,20 +39,20 @@ contract SpaceCoinICO {
 
     uint256 public totalContributions;
 
-    modifier onlyOwner() {
-        require(
-            msg.sender == owner,
-            "This operation could only be done by the owner"
-        );
-        _;
-    }
+    // modifier onlyOwner() {
+    //     require(
+    //         msg.sender == owner,
+    //         "This operation could only be done by the owner"
+    //     );
+    //     _;
+    // }
 
     constructor(
         address _owner,
         SpaceCoin _spaceCoin,
         address _treasury
-    ) {
-        owner = _owner;
+    ) Ownable() {
+        transferOwnership(_owner);
         spaceCoin = _spaceCoin;
         treasury = _treasury;
     }

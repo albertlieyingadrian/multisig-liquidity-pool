@@ -1,13 +1,14 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
+import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 import "./SpaceCoin.sol";
 
 import "hardhat/console.sol";
 
-contract SpaceCoinLP is ERC20 {
+contract SpaceCoinLP is ERC20, Ownable {
     SpaceCoin spaceCoin;
 
     uint256 public reserveETH;
@@ -16,7 +17,7 @@ contract SpaceCoinLP is ERC20 {
     uint256 public constant MINIMUM_LP_TOKEN = 10**3;
     uint256 public constant FEE_IN_PERCENTAGE = 1; // 1%
 
-    constructor(SpaceCoin _spaceCoin) ERC20("SpaceCoin LP", "SpaceCoin-LP") {
+    constructor(SpaceCoin _spaceCoin) ERC20("SpaceCoin LP", "SpaceCoin-LP") Ownable() {
         spaceCoin = _spaceCoin;
     }
 

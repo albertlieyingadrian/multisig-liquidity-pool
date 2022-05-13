@@ -25,7 +25,7 @@ contract SpaceRouter is Ownable {
         uint256 spcAmount,
         uint256 minimumETHOut,
         uint256 minimumSPCOut
-    ) external payable onlyOwner {
+    ) external payable {
         // TODO: Add require only one coin could be swapped at a time
 
         if (spcAmount > 0) {

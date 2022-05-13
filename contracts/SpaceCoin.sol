@@ -27,7 +27,7 @@ contract SpaceCoin is ERC20, Ownable {
         // owner = msg.sender;
 
         treasuryAccount = _treasuryAccount;
-        icoAccount = address(new SpaceCoinICO(owner(), this, treasuryAccount));
+        icoAccount = address(new SpaceCoinICO(msg.sender, this, treasuryAccount));
 
         uint256 icoAmount = ICO_AMOUNT;
 

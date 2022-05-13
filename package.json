@@ -1,8 +1,8 @@
 {
   "name": "hardhat-project",
   "scripts": {
-    "deploy:goerli": "npx hardhat run --network goerli scripts/deploy.ts",
-    "deploy:rinkeby": "npx hardhat run --network rinkeby scripts/deploy.ts",
+    "deploy:goerli": "npx hardhat run --network goerli deploy/deploy.ts",
+    "deploy:rinkeby": "npx hardhat run --network rinkeby deploy/deploy.ts",
     "test": "npx hardhat test"
   },
   "devDependencies": {

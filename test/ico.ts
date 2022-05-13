@@ -138,6 +138,7 @@ describe("SpaceCoin", () => {
         "SpaceCoinICO",
         await spaceCoin.icoAccount()
       );
+      await spaceCoinICO.connect(deployer).transferOwnership(deployer.address);
     });
 
     describe("Deployment", () => {
@@ -161,7 +162,7 @@ describe("SpaceCoin", () => {
       it("Prevents non-owners from advancing phase forward", async () => {
         await expect(
           spaceCoinICO.connect(alice).moveToNextPhase(0)
-        ).to.be.revertedWith("This operation could only be done by the owner");
+        ).to.be.revertedWith("Ownable: caller is not the owner");
       });
 
       it("Emits a PhaseAdvance event after phase is advanced forward", async () => {
@@ -180,7 +181,7 @@ describe("SpaceCoin", () => {
       it("Prevent non-owners from pausing or resuming funding at any time", async () => {
         await expect(
           spaceCoinICO.connect(alice).resumeFunding(true)
-        ).to.be.revertedWith("This operation could only be done by the owner");
+        ).to.be.revertedWith("Ownable: caller is not the owner");
       });
 
       it("Allows owner to add seed investors to the whitelist", async () => {
@@ -224,7 +225,7 @@ describe("SpaceCoin", () => {
           spaceCoinICO
             .connect(bob)
             .modifyWhitelistedInvestors(investorAddrresses, true)
-        ).to.be.revertedWith("This operation could only be done by the owner");
+        ).to.be.revertedWith("Ownable: caller is not the owner");
       });
 
       it("Prevent non-owners from removing a single seed investor from the whitelist", async () => {
@@ -237,7 +238,7 @@ describe("SpaceCoin", () => {
           spaceCoinICO
             .connect(bob)
             .modifyWhitelistedInvestors(investorAddrresses, false)
-        ).to.be.revertedWith("This operation could only be done by the owner");
+        ).to.be.revertedWith("Ownable: caller is not the owner");
       });
     });
 

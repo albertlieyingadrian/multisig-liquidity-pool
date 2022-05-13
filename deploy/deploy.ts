@@ -8,6 +8,8 @@ async function main() {
   // If this script is run directly using `node` you may want to call compile
   // manually to make sure everything is compiled
   // await hre.run('compile');
+  const multisigWalletAddress = "0xE08b81dd3a878eb6fAB1b856231b9c7FD39D718E"; // only in goerli
+
   const [deployer, treasury] = await ethers.getSigners();
 
   console.log("Deploying contracts with the account:", deployer.address);
@@ -28,6 +30,17 @@ async function main() {
   console.log("SpaceCoin deployed to:", spaceCoin.address);
   console.log("SpaceCoinICO deployed to:", await spaceCoin.icoAccount());
 
+  // Move to OPEN phase
+  const spaceCoinICO = await ethers.getContractAt(
+    "SpaceCoinICO",
+    await spaceCoin.icoAccount()
+  );
+
+  console.log("Moving to General Phase ...");
+  await spaceCoinICO.moveToNextPhase(0);
+  console.log("Moving to Open Phase ...");
+  await spaceCoinICO.moveToNextPhase(1);
+
   // Liquidity Pool - SpaceLP
   const SpaceCoinLP = await ethers.getContractFactory("SpaceCoinLP");
   const spaceCoinLP = await SpaceCoinLP.deploy(spaceCoin.address);
@@ -45,8 +58,25 @@ async function main() {
 
   console.log("SpaceRouter deployed to:", spaceRouter.address);
 
-  // @TODO: Change this hardcoded gnosis safe address
-  await spaceRouter.transferOwnership('0xde3788029cc9620269BC7B3A021813B2e4d51274');
+  console.log(
+    "Transfering ownership to multisig wallet:",
+    multisigWalletAddress
+  );
+
+  await spaceCoin
+    .transferOwnership(multisigWalletAddress)
+    .then((tx: any) => tx.wait());
+  await spaceCoinICO
+    .transferOwnership(multisigWalletAddress)
+    .then((tx: any) => tx.wait());
+  await spaceCoinLP
+    .transferOwnership(multisigWalletAddress)
+    .then((tx: any) => tx.wait());
+  await spaceRouter
+    .transferOwnership(multisigWalletAddress)
+    .then((tx: any) => tx.wait());
+
+  console.log("Ownership transferred");
 }
 
 // We recommend this pattern to be able to use async/await everywhere

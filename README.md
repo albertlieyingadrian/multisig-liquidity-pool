@@ -80,6 +80,7 @@ M-of-N (where M: such that 1 < M < N)
 N-of-N
 
 a. 1-of-N
+
 ```
 + Easy and fast for funds to be transferred out for a pool account e.g. investment / common pool for a group
 
@@ -87,6 +88,7 @@ a. 1-of-N
 ```
 
 b. M-of-N (where M: such that 1 < M < N)
+
 ```
 + Safer compared to 1-of-N model and at least it allows some people (M) to confirm first before performing a transaction on behalf of a group. If one private key gets lost, at least there are still some private keys to sign the transaction.
 
@@ -94,8 +96,9 @@ b. M-of-N (where M: such that 1 < M < N)
 ```
 
 c. N-of-N
+
 ```
-+ The safest one because it requires all owners to confirm before a transaction is executed 
++ The safest one because it requires all owners to confirm before a transaction is executed
 
 - Losing one of the private keys makes it impossible to sign the transaction because it requires all owners' confirmation
 ```

@@ -17,6 +17,8 @@ contract SpaceCoinLP is ERC20, Ownable {
     uint256 public constant MINIMUM_LP_TOKEN = 10**3;
     uint256 public constant FEE_IN_PERCENTAGE = 1; // 1%
 
+    uint8 private lock = 1;
+
     constructor(SpaceCoin _spaceCoin)
         ERC20("SpaceCoin LP", "SpaceCoin-LP")
         Ownable()
@@ -24,7 +26,15 @@ contract SpaceCoinLP is ERC20, Ownable {
         spaceCoin = _spaceCoin;
     }
 
-    function deposit(address liquidityProvider) external payable {
+    modifier noReentrant() {
+        require(lock == 1, "No Re-entrancy");
+
+        lock = 2;
+        _;
+        lock = 1;
+    }  
+
+    function deposit(address liquidityProvider) external noReentrant payable {
         uint256 lpToken;
         uint256 eth = address(this).balance - reserveETH;
         uint256 spc = spaceCoin.balanceOf(address(this)) - reserveSPC;
@@ -55,7 +65,7 @@ contract SpaceCoinLP is ERC20, Ownable {
         address trader,
         uint256 minimumETHOut,
         uint256 minimumSPCOut
-    ) external payable {
+    ) external noReentrant payable {
         uint256 eth = address(this).balance - reserveETH;
         uint256 spc = spaceCoin.balanceOf(address(this)) - reserveSPC;
 
@@ -76,7 +86,7 @@ contract SpaceCoinLP is ERC20, Ownable {
         _update();
     }
 
-    function withdraw(address liquidityProvider) external {
+    function withdraw(address liquidityProvider) external noReentrant {
         uint256 lpToken = balanceOf(liquidityProvider);
 
         require(totalSupply() > 0, "NOT_ENOUGH_SUPPLY");

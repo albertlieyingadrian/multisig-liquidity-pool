@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "idrabenia.solidity-solhint",
+        "dbaeumer.vscode-eslint",
+        "github.copilot"
+    ]
+}

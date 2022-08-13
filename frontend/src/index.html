@@ -1,0 +1,61 @@
+<title>Sample Project</title>
+<link rel="stylesheet" type="text/css" href="./index.css">
+
+<h1>Project LP</h1>
+
+<section>
+  <h2>ICO</h2>
+  <form id="ico_set_general">
+    <button type="submit">Set Phase to GENERAL (1st)</button>
+  </form>
+
+  <form id="ico_set_open">
+    <button type="submit">Set Phase to OPEN (2nd)</button>
+  </form>
+
+
+  <div>
+    SPC left to buy: <span id="ico_spc_left"></span>
+  </div>
+
+  <form id="ico_spc_buy">
+    Buy SPC
+    <input name="eth" value="0.1" autocomplete="off">
+    <button type="submit">Buy</button>
+  </form>
+</section>
+
+<section>
+  <h2>Pool</h2>
+
+  <form id="lp_deposit">
+    Deposit for LP tokens <br>
+    <input name="eth" value="0" autocomplete="off"> ETH<br>
+    <input name="spc" value="0" autocomplete="off"> SPC<br>
+    <button type="submit">Deposit</button>
+  </form>
+
+  <form id="lp_withdraw">
+    Withdraw from pool <br>
+    <button type="submit">Withdraw All</button>
+  </form>
+</section>
+
+<section>
+  <h2>Trade</h2>
+
+  <form id="swap">
+    Trade SPC for ETH <br>
+    <input name="amount_in" value="0" autocomplete="off"> <span id="swap_in_label">ETH</span>
+    <small id="switcher" style="text-decoration: underline; cursor: pointer;">swap</small>
+    <br>
+    <span id="eth_slippage_amount">Minimum ETH slippage amount<input name="eth_slippage_amount" value="0" autocomplete="off"></span>
+    <br>
+    <span id="spc_slippage_amount">Minimum SPC slippage amount<input name="spc_slippage_amount" value="0" autocomplete="off"></span>    
+    <br>
+    <span id="swap_out_label">0 SPC</span><br>
+    <button type="submit">Trade</button>
+  </form>
+</section>
+
+<script type="module" src="./index.js"></script>

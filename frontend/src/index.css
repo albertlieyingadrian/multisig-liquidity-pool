@@ -1,0 +1,26 @@
+
+body {
+  background: #303E50;
+  color: #fff;
+  padding: 2rem;
+}
+
+section {
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 2rem;
+}
+section + section {
+  margin-top: 2rem;
+}
+
+section h2 {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+section > * {
+  margin-top: 1rem;
+}
+section form {
+  margin-bottom: 0;
+}
